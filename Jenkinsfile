@@ -10,7 +10,7 @@ pipeline {
         stage('Declarative: Checkout SCM') {
             steps {
                 echo "🔹 Checking out repository for ${PROJECT} by ${AUTHOR}..."
-                sh 'ls -l'
+                bat 'dir'
                 echo "✅ Repository checkout complete!"
             }
         }
@@ -18,7 +18,7 @@ pipeline {
         stage('Initialize Environment') {
             steps {
                 echo "⚙️ Setting up build environment..."
-                sh 'echo Preparing workspace...'
+                bat 'echo Preparing workspace...'
             }
         }
 
@@ -27,14 +27,14 @@ pipeline {
                 stage('Compile Module A') {
                     steps {
                         echo "🧩 Compiling Module A..."
-                        sh 'sleep 2'
+                        bat 'ping -n 3 127.0.0.1 >nul'
                         echo "✅ Module A compiled!"
                     }
                 }
                 stage('Compile Module B') {
                     steps {
                         echo "🧩 Compiling Module B..."
-                        sh 'sleep 2'
+                        bat 'ping -n 3 127.0.0.1 >nul'
                         echo "✅ Module B compiled!"
                     }
                 }
@@ -44,7 +44,7 @@ pipeline {
         stage('Testing Phase') {
             steps {
                 echo "🧪 Running simulated tests..."
-                sh 'sleep 2'
+                bat 'ping -n 3 127.0.0.1 >nul'
                 echo "✅ All tests passed successfully!"
             }
         }
@@ -52,7 +52,7 @@ pipeline {
         stage('Post-Build Analysis') {
             steps {
                 echo "📊 Running post-build checks..."
-                sh 'echo Checking build artifacts...'
+                bat 'echo Checking build artifacts...'
                 echo "✅ Analysis complete!"
             }
         }
@@ -60,7 +60,7 @@ pipeline {
         stage('Deploy Simulation') {
             steps {
                 echo "🚀 Simulating deployment..."
-                sh 'sleep 2'
+                bat 'ping -n 3 127.0.0.1 >nul'
                 echo "✅ Deployment simulated successfully!"
             }
         }
